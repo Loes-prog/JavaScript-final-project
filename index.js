@@ -117,7 +117,7 @@ while (true) {
   if (min_age_interest === NaN) {
     console.log("Your answer is unclear.");
   } else if (min_age_interest < 18) {
-    console.log("You must be 18 years old or over to continue");
+    console.log("You must be 18 years old or over to continue.");
   }
   else {
     profile.min_age_interest = min_age_interest;
@@ -143,22 +143,22 @@ while (true) {
   }
 }
 
-console.log("----------YOUR PROFILE----------");
+console.log("---------- YOUR PROFILE ----------");
 
 console.log(profile);
 
-console.log("-----------THE RESULT-----------");
+console.log("----------- THE RESULT -----------");
 
-// Loop that compares the data with the new profile data and store a person as a match when they meet specific criteria
+// Loop that compares the mockdata with the new profile data and store a person as a match when they meet specific criteria
 
 let totalMatchProfiles = []
 
 for (let i = 0; i < mockData.length; i++) {
   let matchPerson = mockData[i];  // checks every person from the data one-by-one
-  let ageRangeProfileMatch = profile.age >= matchPerson.min_age_interest && profile.age <= matchPerson.max_age_interest; // value makes sure your age range and their age match
-  let ageRangeMatchPerson = matchPerson.age >= profile.min_age_interest && matchPerson.age <= matchPerson.max_age_interest; // value makes sure their age range and your age match
-  let genderMatch = profile.gender === matchPerson.gender_interest && matchPerson.gender === profile.gender_interest; // value checks if their gender interest and your gender match & if your gender interest ands their gender match
-  let locationMatch = profile.location === matchPerson.location; // value checks if you both live in the same location
+  let ageRangeProfileMatch = profile.age >= matchPerson.min_age_interest && profile.age <= matchPerson.max_age_interest; // value makes sure 'new profile' age range and their age match
+  let ageRangeMatchPerson = matchPerson.age >= profile.min_age_interest && matchPerson.age <= matchPerson.max_age_interest; // value makes sure their age range and 'new profile' age match
+  let genderMatch = profile.gender === matchPerson.gender_interest && matchPerson.gender === profile.gender_interest; // value checks if their gender interest and 'new profile' gender match & if 'new profile' gender interest ands their gender match
+  let locationMatch = profile.location === matchPerson.location; // value checks if 'new profile' and mockData profile live in the same location
   if (ageRangeProfileMatch && ageRangeMatchPerson && genderMatch && locationMatch) {
     totalMatchProfiles.push(matchPerson);  // adds de matches (objects) to one array
   }
